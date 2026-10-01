@@ -41,6 +41,20 @@ jobs:
           echo "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
           yes | sdkmanager --licenses > /dev/null || true
 
+      - name: Create Release Keystore
+        run: |
+          mkdir -p "$HOME/.bac-master-keystore"
+          keytool -genkeypair \
+            -v \
+            -keystore "$HOME/.bac-master-keystore/bacmaster.jks" \
+            -storepass BACMASTER2027 \
+            -keypass BACMASTER2027 \
+            -alias bacmaster \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=BAC MASTER 2027, OU=BAC MASTER, O=BAC MASTER, L=Algiers, ST=Algiers, C=DZ"
+
       - name: Build Release APK
         working-directory: android
         run: ./gradlew assembleRelease --no-daemon
