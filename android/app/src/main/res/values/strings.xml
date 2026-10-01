@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BAC MASTER 2027</string>
+    <string name="title_activity_main">BAC MASTER 2027</string>
+    <string name="package_name">com.bacmaster2027.app</string>
+    <string name="custom_url_scheme">com.bacmaster2027.app</string>
+</resources>
